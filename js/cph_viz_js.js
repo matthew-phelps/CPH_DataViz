@@ -3,7 +3,7 @@ var height = 700,
 	width = 700,
 	padding = 200;
 
-var defaultCircleRadius = 1.5;
+var defaultCircleRadius = 2;
 
 var caseColor = "#0066FF",
 	deathColor = "#F3535E";
@@ -220,7 +220,8 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 
 
 
-	// INTERACTIVITY
+	// INTERACTIVITY /////////////////////////
+
 	// 2nd parameter of ".on" method is event listener function.
 	dots.on('mouseenter', function(d, i) { //d = datum of current element | i = index of the data.
 		radius = solveForR(d.cholera_cases);
@@ -229,7 +230,7 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 			.style('display', 'block');
 		dot.select('circle')
 			.transition()
-			.duration(150)
+			.duration(100)
 			.attr('r', rScale(radius));
 	});
 
@@ -239,6 +240,7 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 			.style('display', 'none');
 		dot.select('circle')
 			.transition()
+			.duration(150)
 			.attr('r', defaultCircleRadius);
 	});
 
@@ -248,6 +250,8 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 		dot.select('text') // use sub-selection of 'g' elemented selected above to select 'text'.
 			.style('display', 'block');
 		dot.select('circle')
+			.transition()
+			.duration(100)
 			.attr('r', rScale(radius));
 	});
 
@@ -256,6 +260,8 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 		dot.select('text')
 			.style('display', 'none');
 		dot.select('circle')
+			.transition()
+			.duration(150)
 			.attr('r', defaultCircleRadius);
 	});
 

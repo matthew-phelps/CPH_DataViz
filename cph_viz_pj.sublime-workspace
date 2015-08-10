@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"rang",
+				"rangeBand"
+			],
+			[
+				"par",
+				"parseFloat"
+			],
+			[
+				"death",
+				"deathColor"
+			],
+			[
+				"dea",
+				"deathColor"
+			],
+			[
+				"case",
+				"caseColor"
+			],
+			[
+				"tran",
+				"transition"
+			],
+			[
+				"stro",
+				"stroke-width"
+			],
+			[
+				"choler",
+				"cholera_deaths"
+			],
+			[
+				"parse",
+				"parseTime"
+			],
+			[
 				"at",
 				"attr	selection.attr"
 			],
@@ -24,20 +60,12 @@
 				"dotsMort"
 			],
 			[
-				"tran",
-				"translate	.attr('transform', 'translate(0,0)')"
-			],
-			[
 				"y",
 				"yScale"
 			],
 			[
 				"pa",
 				"parse"
-			],
-			[
-				"par",
-				"parseTime"
 			],
 			[
 				"dot",
@@ -66,10 +94,6 @@
 			[
 				"select",
 				"select"
-			],
-			[
-				"parse",
-				"parseInt"
 			],
 			[
 				"xM",
@@ -199,7 +223,7 @@
 			"file": "js/cph_viz_js.js",
 			"settings":
 			{
-				"buffer_size": 6732,
+				"buffer_size": 7094,
 				"line_ending": "Windows"
 			}
 		},
@@ -207,15 +231,7 @@
 			"file": "cph_viz.html",
 			"settings":
 			{
-				"buffer_size": 497,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/tongi_v1.html",
-			"settings":
-			{
-				"buffer_size": 1268,
+				"buffer_size": 468,
 				"line_ending": "Windows"
 			}
 		}
@@ -227,10 +243,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 269.0,
-		"last_filter": "Package Control: re",
+		"height": 101.0,
+		"last_filter": "Package Control: install",
 		"selected_items":
 		[
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
 			[
 				"Package Control: re",
 				"Package Control: Remove Package"
@@ -267,12 +287,12 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/CPH_DataViz"
-	],
 	"file_history":
 	[
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/Default.sublime-keymap",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/tongi_v1.html",
 		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/JsFormat/JsFormat.sublime-settings",
 		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/js/map_js.js",
 		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
@@ -284,7 +304,6 @@
 		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson3/L3_basic_charts_final.html",
 		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson4/07_globe_adding_circles.html",
-		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/tongi_v1.html",
 		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/data/house_geo3.js",
 		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/data/water_geo.js",
 		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
@@ -335,9 +354,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 117.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -345,6 +365,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"none",
+			"parseInt",
+			"parseTime",
+			".call(xAxis)",
+			"br",
 			"padding",
 			"black",
 			"\"Household.\"",
@@ -381,25 +406,26 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6732,
+						"buffer_size": 7094,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4973,
-								4973
+								100,
+								100
 							]
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Zenburnesque.tmTheme",
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 3,
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2810.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -411,15 +437,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 497,
+						"buffer_size": 468,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								497,
-								497
+								318,
+								318
 							]
 						],
 						"settings":
@@ -434,36 +460,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/tongi_v1.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1268,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								168,
-								168
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
