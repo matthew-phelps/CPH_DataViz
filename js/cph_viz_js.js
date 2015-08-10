@@ -1,21 +1,23 @@
 // Heigh + width of svg
 var height = 700,
-	width = 700;
+	width = 700,
+	padding = 200;
 
-var padding = 200;
+var defaultCircleRadius = 1.5;
 
-var defaultCircleRadius = 2;
+var caseColor = "#0066FF",
+	deathColor = "#F3535E";
 
-var viz = d3.select('#viz-wrapper')
+// CREATE SVG
+var viz = d3.select('body')
 	.append('svg')
-	//addtion to separate axes from parent graph element.
-	.attr('height', height + padding * 2)
-	.attr('width', width + padding * 2)
+		.attr('height', height + padding * 2)
+		.attr('width', width + padding * 2)
 	// add 'group' element
 	.append('g')
-	.attr('id', 'viz')
-	.attr('transform',
-		'translate(' + padding + "," + padding + ')');
+		.attr('id', 'viz')
+		.attr('transform',
+				'translate(' + padding + "," + padding + ')');
 
 // SCALE CONVERSIONS
 var yScale = d3.scale.linear()
@@ -39,10 +41,27 @@ var yAxis = d3.svg.axis().scale(yScale)
 
 var parseTime = d3.time.format("%d%m%Y");
 
+// LINE GENERATING FUNCTIONS
+var LineGenCases = d3.svg.line()
+		.x(function(d) {
+			return xScale(d.full_date);
+		})
+		.y(function(d) {
+			return yScale(d.cholera_cases);
+		});
+
+var LineGenDeaths = d3.svg.line()
+		.x(function(d) {
+			return xScale(d.full_date);
+		})
+		.y(function(d) {
+			return yScale(d.cholera_deaths);
+		});
+
 //CIRCLE RADIUS TO AREA CONVERSION
 var solveForR = function(cholera_deaths) {
 	// area of circle = pi * r * r
-	area = parseInt(cholera_deaths); //Math.abs corrects for potential negative values.
+	area = cholera_deaths; //Math.abs corrects for potential negative values.
 	r = Math.sqrt(area / Math.PI);
 	return r;
 };
@@ -51,37 +70,45 @@ var solveForR = function(cholera_deaths) {
 
 // LOAD DATA /////////////////////////////////////////////
 d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
-
+	data.forEach(function(d) {
+		d.full_date = parseTime.parse(d.full_date);
+		d.cholera_cases = parseInt(d.cholera_cases);
+		d.cholera_deaths = parseInt(d.cholera_deaths);
+	});
 	// SET DOMAINS //
 	yDomain = d3.extent(data, function(element) {
-		return parseInt(element.cholera_cases);
+		return element.cholera_cases;
 	});
 
-	xMin = d3.min(data, function(element) {
-		var time = parseTime.parse(element.full_date);
-		time.setDate(time.getDate() - 3);
-		return time
-	});
-
-	xMax = d3.max(data, function(element) {
-		var time = parseTime.parse(element.full_date);
-		time.setDate(time.getDate() + 3);
-		return time
+	xDomain = d3.extent(data, function(element) {
+		return element.full_date;
 	});
 
 	rDomain = d3.extent(data, function(element) {
-		return solveForR(parseInt(element.cholera_deaths));
+		return solveForR(element.cholera_deaths);
 	});
 
-
-	/* SIMPLE WAY TO GET X DOMAIN EXTENTS
-	xDomain = d3.extent(data, function(element) {
-		return parseTime.parse(element.full_date)
-	});
-	*/
 	yScale.domain(yDomain);
-	xScale.domain([xMin, xMax]);
+	xScale.domain(xDomain);
 	rScale.domain(rDomain);
+
+	// ADDING LINE GRAPH ///////////////////////////
+	viz.append('path')
+		.attr('class', 'line cases')
+		.attr('d', LineGenCases(data))
+		.attr('stroke-width', 2)
+		.attr('stroke', caseColor)
+		.attr('fill', 'none');
+
+	viz.append('path')
+		.attr('class', 'line deaths')
+		.attr('d', LineGenDeaths(data))
+		.attr('stroke-width', 2)
+		.attr('stroke', deathColor)
+		.attr('fill', 'none')
+		.attr('stroke-dasharray', '10,5')
+
+
 
 	// ADD X AXIS
 	var g_elements = viz.append('g')
@@ -108,7 +135,6 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 		.attr('class', 'y axis') //Does not need transformation because it will start at origin of svg.
 		.call(yAxis);
 
-
 	// DATA BINDING // Bind data to 'g' elements, rather than circles themselves.
 	dots = viz.selectAll('g.dots')
 		.data(data)
@@ -116,18 +142,17 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 		.append('g')
 		.attr('class', 'dots');
 
-
 	dots.attr('transform', function(d) {
 			// get x position
-			var date = parseTime.parse(d.full_date);
+			var date = d.full_date;
 			var x = xScale(date);
 			// get y position
 			var y = yScale(d.cholera_cases);
 			return 'translate(' + x + ',' + y + ')'
 		})
 		.style({
-			'stroke': '#1250C3',
-			'fill': '#00008A'
+			'stroke': caseColor,
+			'fill': caseColor
 		});
 
 	dots.append('circle')
@@ -135,7 +160,7 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 
 	dots.append('text')
 		.text(function(d) {
-			return "Cases " + d.cholera_cases + " @ day: " + d.day_index;
+			return "Cases: " + d.cholera_cases + " at day: " + d.day_index;
 		})
 		.attr('transform', function(d) { // move the labels (relative to the position of the 'g' elements!)
 			var x = 20
@@ -160,7 +185,7 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 
 	dotsMort.attr('transform', function(d) {
 		// Get x position.
-		var date = parseTime.parse(d.full_date);
+		var date = d.full_date;
 		var x = xScale(date);
 		// Get y position.
 		var y = yScale(d.cholera_deaths);
@@ -168,8 +193,8 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 	})
 
 	dotsMort.style({
-		'stroke': '#C32F12',
-		'fill': '#C32F12'
+		'stroke': deathColor,
+		'fill': deathColor
 	});
 
 	dotsMort.append('circle')
@@ -185,38 +210,26 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 			var y = 5
 			return 'translate(' + x + ',' + y + ')';
 		})
-		.style({
+		.style({ //Removes formatting given to circles element & changes font family.
 			'stroke': 'none',
 			'fill': 'black',
 			'font-family': 'arial',
 			'background-color': 'white'
-		}) //Removes formatting given to circles element & changes font family.
+		})
 		.style('display', 'none'); //Text will exist but invisible by default.
 
-	// ADDING LINE GRAPH
-	var LineGen = d3.svg.line()
-		.x(function(d) {
-			return xScale(d.full_date);
-		})
-		.y(function(d) {
-			return yScale(d.cholera_cases);
-		});
-
-	viz.append('svg:path')
-		.attr('d', LineGen(data))
-		.attr('stroke', 'green')
-		.attr('stroke-width', 2)
-		.attr('fill', 'none');
 
 
 	// INTERACTIVITY
 	// 2nd parameter of ".on" method is event listener function.
 	dots.on('mouseenter', function(d, i) { //d = datum of current element | i = index of the data.
-		radius = solveForR(parseInt(d.cholera_cases));
+		radius = solveForR(d.cholera_cases);
 		dot = d3.select(this); //"this" is the html element that contains the listener. Using "this" we turn d3 element into a selection. So here we turnt he 'g' element into a d3 selection.
 		dot.select('text') // use sub-selection of 'g' elemented selected above to select 'text'.
 			.style('display', 'block');
 		dot.select('circle')
+			.transition()
+			.duration(150)
 			.attr('r', rScale(radius));
 	});
 
@@ -225,11 +238,12 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 		dot.select('text')
 			.style('display', 'none');
 		dot.select('circle')
+			.transition()
 			.attr('r', defaultCircleRadius);
 	});
 
 	dotsMort.on('mouseenter', function(d, i) { //d = datum of current element | i = index of the data.
-		radius = solveForR(parseInt(d.cholera_deaths));
+		radius = solveForR(d.cholera_deaths);
 		dot = d3.select(this); //"this" is the html element that contains the listener. Using "this" we turn d3 element into a selection. So here we turnt he 'g' element into a d3 selection.
 		dot.select('text') // use sub-selection of 'g' elemented selected above to select 'text'.
 			.style('display', 'block');
