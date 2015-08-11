@@ -43,20 +43,20 @@ var parseTime = d3.time.format("%d%m%Y");
 
 // LINE GENERATING FUNCTIONS
 var LineGenCases = d3.svg.line()
-		.x(function(d) {
+	.x(function(d) {
 			return xScale(d.full_date);
-		})
-		.y(function(d) {
-			return yScale(d.cholera_cases);
-		});
+	})
+	.y(function(d) {
+		return yScale(d.cholera_cases);
+	});
 
 var LineGenDeaths = d3.svg.line()
-		.x(function(d) {
-			return xScale(d.full_date);
-		})
-		.y(function(d) {
-			return yScale(d.cholera_deaths);
-		});
+	.x(function(d) {
+		return xScale(d.full_date);
+	})
+	.y(function(d) {
+		return yScale(d.cholera_deaths);
+	});
 
 //CIRCLE RADIUS TO AREA CONVERSION
 var solveForR = function(cholera_deaths) {
@@ -158,11 +158,11 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 	dots.append('circle')
 		.attr('r', defaultCircleRadius);
 
-	dots.append('text')
+/*	dots.append('text')
 		.text(function(d) {
 			return "Cases: " + d.cholera_cases + " at day: " + d.day_index;
-		})
-		.attr('transform', function(d) { // move the labels (relative to the position of the 'g' elements!)
+		})*/
+/*		.attr('transform', function(d) { // move the labels (relative to the position of the 'g' elements!)
 			var x = 20
 				// get y position
 			var y = 5
@@ -174,7 +174,7 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 			'font-family': 'arial',
 			'background-color': 'white'
 		}) //Removes formatting given to circles element & changes font family.
-		.style('display', 'none'); //Text will exist but invisible by default.
+		.style('display', 'none'); //Text will exist but invisible by default.*/
 
 	// Add Mortality data
 	dotsMort = viz.selectAll('g.dotsMort')
@@ -223,11 +223,13 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 	// INTERACTIVITY /////////////////////////
 
 	// 2nd parameter of ".on" method is event listener function.
-	dots.on('mouseenter', function(d, i) { //d = datum of current element | i = index of the data.
+	dots.on('mouseenter', function(d) { //d = datum of current element | i = index of the data.
+		d3.select("#caseValue").text(d.cholera_cases);
+		d3.select('#dayIndexCases').text(d.day_index);
+		d3.select('#dateCases').text(d.full_date);
+		d3.select('#caseTooltip').classed("hidden", false);
 		radius = solveForR(d.cholera_cases);
-		dot = d3.select(this); //"this" is the html element that contains the listener. Using "this" we turn d3 element into a selection. So here we turnt he 'g' element into a d3 selection.
-		dot.select('text') // use sub-selection of 'g' elemented selected above to select 'text'.
-			.style('display', 'block');
+		dot = d3.select(this);
 		dot.select('circle')
 			.transition()
 			.duration(100)
@@ -236,8 +238,7 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 
 	dots.on('mouseleave', function(d, i) {
 		dot = d3.select(this);
-		dot.select('text')
-			.style('display', 'none');
+		d3.select('#caseTooltip').classed("hidden", true);
 		dot.select('circle')
 			.transition()
 			.duration(150)
