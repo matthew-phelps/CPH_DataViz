@@ -15,6 +15,7 @@
     }
 
     .tooltip {
+      position: absolute;
       width: 200px;
       height: auto;
       padding: 10px;
@@ -26,10 +27,8 @@
       -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
       box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
       pointer-events: none;
-    }
+      opacity: 0
 
-    .tooltip.hidden {
-      display: none;
     }
 
     .tooltip p {
@@ -44,16 +43,18 @@
 <body>
 
   <!-- ToolTip div -->
-  <div id="caseTooltip" class = 'tooltip hidden'>
-    <p><strong><span id="caseValue">100</span></strong> cases</p>
-    <p>Day index: <span id="dayIndexCases">50</span></p>
-    <p>Date: <span id="dateCases">50</span></p>
+  <div id="caseTooltip" class = 'tooltip'>
+    <p>Cases: <strong><span id="caseValue">100</span></strong> </p>
+    <p>Day index: <strong><span id="dayIndexCase">50</span></strong></p>
+    <p>Date: <span id="dateCase">50</span></p>
 
   </div>
 
-  <div id="deathTooltip" class = 'tooltip hidden'>
-    <p><span id="deathValue"><strong>100</strong></span>cases</p>
-    <p>Day <span id="dayIndexDeath">50</span></p>
+  <div id="deathTooltip" class = 'tooltip'>
+    <p>Deaths: <strong><span id="deathValue">100</span></strong> </p>
+    <p>Day index: <strong><span id="dayIndexDeath">50</span></strong></p>
+    <p>Date: <span id="dateDeath">50</span></p>
+
   </div>
   <!-- LOAD DATA-->
 

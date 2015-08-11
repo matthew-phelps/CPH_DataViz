@@ -1,12 +1,13 @@
 // Heigh + width of svg
-var height = 700,
-	width = 700,
+var height = 550,
+	width = 850,
 	padding = 200;
 
 var defaultCircleRadius = 2;
+	mouseCircleRadius = 7;
 
-var caseColor = "#0066FF",
-	deathColor = "#F3535E";
+var caseColor = "#2477F3",
+	deathColor = "#F46C75";
 
 // CREATE SVG
 var viz = d3.select('body')
@@ -28,7 +29,7 @@ var xScale = d3.time.scale()
 
 // Circle radius scale
 var rScale = d3.scale.linear()
-	.range([3, 8]);
+	.range([5, 10]);
 
 // SET UP AXES
 var xAxis = d3.svg.axis().scale(xScale)
@@ -40,6 +41,8 @@ var yAxis = d3.svg.axis().scale(yScale)
 	.ticks(10);
 
 var parseTime = d3.time.format("%d%m%Y");
+
+var prettyTime = d3.time.format("%d %b")
 
 // LINE GENERATING FUNCTIONS
 var LineGenCases = d3.svg.line()
@@ -135,7 +138,11 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 		.attr('class', 'y axis') //Does not need transformation because it will start at origin of svg.
 		.call(yAxis);
 
-	// DATA BINDING // Bind data to 'g' elements, rather than circles themselves.
+	
+	// DATA BINDING ////////////////
+	// Bind data to 'g' elements, rather than circles themselves.
+	
+	//CASE DATA CIRCLES
 	dots = viz.selectAll('g.dots')
 		.data(data)
 		.enter()
@@ -158,25 +165,34 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 	dots.append('circle')
 		.attr('r', defaultCircleRadius);
 
-/*	dots.append('text')
-		.text(function(d) {
-			return "Cases: " + d.cholera_cases + " at day: " + d.day_index;
-		})*/
-/*		.attr('transform', function(d) { // move the labels (relative to the position of the 'g' elements!)
-			var x = 20
-				// get y position
-			var y = 5
-			return 'translate(' + x + ',' + y + ')';
-		})
-		.style({
-			'stroke': 'none',
-			'fill': 'black',
-			'font-family': 'arial',
-			'background-color': 'white'
-		}) //Removes formatting given to circles element & changes font family.
-		.style('display', 'none'); //Text will exist but invisible by default.*/
+	// INVISIBLE CIRCLES to make mouseover events easier
+	mouseCircles = viz.selectAll('g.mouseCircles')
+		.data(data)
+		.enter()
+		.append('g')
+		.attr('class', 'mouseCircles');
 
-	// Add Mortality data
+	mouseCircles.attr('transform', function(d) {
+			// get x position
+			var date = d.full_date;
+			var x = xScale(date);
+			// get y position
+			var y = yScale(d.cholera_cases);
+			return 'translate(' + x + ',' + y + ')'
+		});
+		
+	mouseCircles.style({
+		'stroke': caseColor,
+		'fill': caseColor
+		});
+
+	mouseCircles.append('circle')
+		.attr('r', mouseCircleRadius)
+		.attr('opacity', 0);
+	
+
+
+	// MORTALITY CIRCLES
 	dotsMort = viz.selectAll('g.dotsMort')
 		.data(data)
 		.enter()
@@ -200,70 +216,103 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 	dotsMort.append('circle')
 		.attr('r', defaultCircleRadius);
 
-	dotsMort.append('text')
-		.text(function(d) {
-			return "Deaths " + d.cholera_deaths + " @ day: " + d.day_index;
-		})
-		.attr('transform', function(d) { // move the labels (relative to the position of the 'g' elements!)
-			var x = 20
-				// get y position
-			var y = 5
-			return 'translate(' + x + ',' + y + ')';
-		})
-		.style({ //Removes formatting given to circles element & changes font family.
-			'stroke': 'none',
-			'fill': 'black',
-			'font-family': 'arial',
-			'background-color': 'white'
-		})
-		.style('display', 'none'); //Text will exist but invisible by default.
+	// MORTALITY INVISIBLE CIRCLES
+	mouseCirclesMortality = viz.selectAll('g.mouseCirclesMortality')
+		.data(data)
+		.enter()
+		.append('g')
+		.attr('class', 'mouseCirclesMortality');
+
+	mouseCirclesMortality.attr('transform', function(d) {
+			// get x position
+			var date = d.full_date;
+			var x = xScale(date);
+			// get y position
+			var y = yScale(d.cholera_deaths);
+			return 'translate(' + x + ',' + y + ')'
+		});
+		
+	mouseCirclesMortality.style({
+		'stroke': deathColor,
+		'fill': deathColor
+		});
+
+	mouseCirclesMortality.append('circle')
+		.attr('r', mouseCircleRadius)
+		.attr('opacity', 0);
 
 
 
 	// INTERACTIVITY /////////////////////////
-
 	// 2nd parameter of ".on" method is event listener function.
-	dots.on('mouseenter', function(d) { //d = datum of current element | i = index of the data.
+	
+	// CASES ENTER
+	mouseCircles.on('mouseenter', function(d) { //d = datum of current element | i = index of the data.
+		var xPosition = xScale(d.full_date) + 10;
+		var yPosition = yScale(d.cholera_cases) +100;
+		d3.select('#caseTooltip')
+			.style('left', xPosition + 'px')
+			.style('top', yPosition + 'px');
 		d3.select("#caseValue").text(d.cholera_cases);
-		d3.select('#dayIndexCases').text(d.day_index);
-		d3.select('#dateCases').text(d.full_date);
-		d3.select('#caseTooltip').classed("hidden", false);
+		d3.select('#dayIndexCase').text(d.day_index);
+		d3.select('#dateCase').text(prettyTime(d.full_date));
+		d3.select('#caseTooltip')
+			.transition()
+			.style('opacity', 0.8);
 		radius = solveForR(d.cholera_cases);
 		dot = d3.select(this);
 		dot.select('circle')
 			.transition()
 			.duration(100)
-			.attr('r', rScale(radius));
+			.attr('r', rScale(radius))
+			.attr('opacity', 0.8);
 	});
 
-	dots.on('mouseleave', function(d, i) {
+	// CASES EXIT
+	mouseCircles.on('mouseleave', function(d, i) {
 		dot = d3.select(this);
-		d3.select('#caseTooltip').classed("hidden", true);
+		d3.select('#caseTooltip')
+			.transition()
+			.style('opacity', 0);
 		dot.select('circle')
 			.transition()
 			.duration(150)
-			.attr('r', defaultCircleRadius);
+			.attr('r', mouseCircleRadius)
+			.attr('opacity', 0);
 	});
 
-	dotsMort.on('mouseenter', function(d, i) { //d = datum of current element | i = index of the data.
+	// MORTALITY ENTER
+	mouseCirclesMortality.on('mouseenter', function(d) { //d = datum of current element | i = index of the data.
+		var xPosition = xScale(d.full_date) + 10;
+		var yPosition = yScale(d.cholera_deaths) +100;
+		d3.select('#deathTooltip')
+			.style('left', xPosition + 'px')
+			.style('top', yPosition + 'px');
+		d3.select("#deathValue").text(d.cholera_deaths);
+		d3.select('#dayIndexDeath').text(d.day_index);
+		d3.select('#dateDeath').text(prettyTime(d.full_date));
+		d3.select('#deathTooltip')
+			.transition()
+			.style('opacity', 0.8);
 		radius = solveForR(d.cholera_deaths);
-		dot = d3.select(this); //"this" is the html element that contains the listener. Using "this" we turn d3 element into a selection. So here we turnt he 'g' element into a d3 selection.
-		dot.select('text') // use sub-selection of 'g' elemented selected above to select 'text'.
-			.style('display', 'block');
+		dot = d3.select(this);
 		dot.select('circle')
 			.transition()
 			.duration(100)
-			.attr('r', rScale(radius));
+			.attr('r', rScale(radius))
+			.attr('opacity', 0.8);
 	});
 
-	dotsMort.on('mouseleave', function(d, i) {
+	mouseCirclesMortality.on('mouseleave', function(d, i) {
 		dot = d3.select(this);
-		dot.select('text')
-			.style('display', 'none');
+		d3.select('#deathTooltip')
+			.transition()
+			.style('opacity', 0);
 		dot.select('circle')
 			.transition()
 			.duration(150)
-			.attr('r', defaultCircleRadius);
+			.attr('r', mouseCircleRadius)
+			.attr('opacity', 0);
 	});
 
 });
