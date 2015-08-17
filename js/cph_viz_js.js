@@ -1,7 +1,10 @@
 // Heigh + width of svg
 var height = 550,
 	width = 850,
-	padding = 200;
+	padding = 80,
+	topPadding = 30,
+	legendHeight = 90,
+	legendWidth = 200;
 
 var defaultCircleRadius = 2;
 	mouseCircleRadius = 7;
@@ -12,8 +15,8 @@ var caseColor = "#2477F3",
 // CREATE SVG
 var viz = d3.select('body')
 	.append('svg')
-		.attr('height', height + padding * 2)
-		.attr('width', width + padding * 2)
+		.attr('height', height + padding *2)
+		.attr('width', width + padding *2)
 	// add 'group' element
 	.append('g')
 		.attr('id', 'viz')
@@ -22,7 +25,7 @@ var viz = d3.select('body')
 
 // SCALE CONVERSIONS
 var yScale = d3.scale.linear()
-	.range([height, 0]);
+	.range([height, topPadding]);
 
 var xScale = d3.time.scale()
 	.range([0, width]);
@@ -34,7 +37,7 @@ var rScale = d3.scale.linear()
 // SET UP AXES
 var xAxis = d3.svg.axis().scale(xScale)
 	.orient('bottom')
-	.ticks(5);
+	.ticks(10);
 
 var yAxis = d3.svg.axis().scale(yScale)
 	.orient('left')
@@ -69,6 +72,11 @@ var solveForR = function(cholera_deaths) {
 	return r;
 };
 
+// ADD TITLE
+ var titleText = viz.append('text')
+ 	.text("Cholera epidemic 1853 Copenhagen")
+ 	.attr('x', (width) / 3)
+ 	.attr({'font-family': 'Roboto', 'font-size' : '20'});
 
 
 // LOAD DATA /////////////////////////////////////////////
@@ -112,6 +120,17 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 		.attr('stroke-dasharray', '10,5')
 
 
+	// LEGEND ///////
+
+	var legend = viz.append('g')
+		.attr('class', 'legend')
+		.attr('transform', 'translate(' + (width - 300) + ',' + 200 + ')');
+
+	legend.append('text')
+		.attr('x', 115)
+		.attr('y', 25)
+		.attr('font-size', '16')
+		.text("Cholera Cases")
 
 	// ADD X AXIS
 	var g_elements = viz.append('g')
@@ -249,7 +268,7 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 	// CASES ENTER
 	mouseCircles.on('mouseenter', function(d) { //d = datum of current element | i = index of the data.
 		var xPosition = xScale(d.full_date) + 10;
-		var yPosition = yScale(d.cholera_cases) +100;
+		var yPosition = yScale(d.cholera_cases) - padding - topPadding + 100; // 'padding' elements to make sure that as we adjust the padding we don't have to keep adjusting the position on the toolTips
 		d3.select('#caseTooltip')
 			.style('left', xPosition + 'px')
 			.style('top', yPosition + 'px');
@@ -258,14 +277,14 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 		d3.select('#dateCase').text(prettyTime(d.full_date));
 		d3.select('#caseTooltip')
 			.transition()
-			.style('opacity', 0.8);
+			.style('opacity', 0.9);
 		radius = solveForR(d.cholera_cases);
 		dot = d3.select(this);
 		dot.select('circle')
 			.transition()
 			.duration(100)
 			.attr('r', rScale(radius))
-			.attr('opacity', 0.8);
+			.attr('opacity', 0.9);
 	});
 
 	// CASES EXIT
@@ -284,7 +303,7 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 	// MORTALITY ENTER
 	mouseCirclesMortality.on('mouseenter', function(d) { //d = datum of current element | i = index of the data.
 		var xPosition = xScale(d.full_date) + 10;
-		var yPosition = yScale(d.cholera_deaths) +100;
+		var yPosition = yScale(d.cholera_deaths)  - padding - topPadding + 100;
 		d3.select('#deathTooltip')
 			.style('left', xPosition + 'px')
 			.style('top', yPosition + 'px');
@@ -293,14 +312,14 @@ d3.csv('data/CPH_cholera_outbreak_1853.csv', function(data) {
 		d3.select('#dateDeath').text(prettyTime(d.full_date));
 		d3.select('#deathTooltip')
 			.transition()
-			.style('opacity', 0.8);
+			.style('opacity', 0.9);
 		radius = solveForR(d.cholera_deaths);
 		dot = d3.select(this);
 		dot.select('circle')
 			.transition()
 			.duration(100)
 			.attr('r', rScale(radius))
-			.attr('opacity', 0.8);
+			.attr('opacity', 0.9);
 	});
 
 	mouseCirclesMortality.on('mouseleave', function(d, i) {

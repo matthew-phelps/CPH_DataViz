@@ -4,6 +4,74 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-size"
+			],
+			[
+				"a",
+				"attr	selection.attr"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"le",
+				"legendHeight"
+			],
+			[
+				"tr",
+				"translate	.attr('transform', 'translate(0,0)')"
+			],
+			[
+				"trans",
+				"translate	.attr('transform', 'translate(0,0)')"
+			],
+			[
+				"se",
+				"selectAll"
+			],
+			[
+				"top",
+				"topPadding"
+			],
+			[
+				"chole",
+				"cholera_deaths"
+			],
+			[
+				"case",
+				"caseColor"
+			],
+			[
+				"mouse",
+				"mouseCircles"
+			],
+			[
+				"mou",
+				"mouseCircles"
+			],
+			[
+				"st",
+				"style	selection.style"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"date",
+				"full_date"
+			],
+			[
+				"da",
+				"day_index"
+			],
+			[
+				"choler",
+				"cholera_cases"
+			],
+			[
 				"rang",
 				"rangeBand"
 			],
@@ -20,20 +88,12 @@
 				"deathColor"
 			],
 			[
-				"case",
-				"caseColor"
-			],
-			[
 				"tran",
 				"transition"
 			],
 			[
 				"stro",
 				"stroke-width"
-			],
-			[
-				"choler",
-				"cholera_deaths"
 			],
 			[
 				"parse",
@@ -60,10 +120,6 @@
 				"dotsMort"
 			],
 			[
-				"y",
-				"yScale"
-			],
-			[
 				"pa",
 				"parse"
 			],
@@ -78,10 +134,6 @@
 			[
 				"selec",
 				"selectNode(${0:referenceNode})	Range"
-			],
-			[
-				"trans",
-				"transform"
 			],
 			[
 				"x",
@@ -106,10 +158,6 @@
 			[
 				"get",
 				"getMonth"
-			],
-			[
-				"tr",
-				"translate"
 			],
 			[
 				"Pump",
@@ -148,10 +196,6 @@
 				"height"
 			],
 			[
-				"st",
-				"style	Tag"
-			],
-			[
 				"i",
 				"i"
 			],
@@ -178,10 +222,6 @@
 			[
 				"colo",
 				"colorHome"
-			],
-			[
-				"font",
-				"font-family"
 			],
 			[
 				"font-s",
@@ -223,7 +263,7 @@
 			"file": "js/cph_viz_js.js",
 			"settings":
 			{
-				"buffer_size": 7094,
+				"buffer_size": 8375,
 				"line_ending": "Windows"
 			}
 		},
@@ -231,7 +271,7 @@
 			"file": "cph_viz.html",
 			"settings":
 			{
-				"buffer_size": 468,
+				"buffer_size": 2141,
 				"line_ending": "Windows"
 			}
 		}
@@ -289,6 +329,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/CPH_DataViz/js/cph_viz_helper_js.js",
 		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
 		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/Default.sublime-keymap",
 		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
@@ -365,6 +406,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"case",
+			"cases",
+			"mouseCircles",
+			"caseValue",
 			"none",
 			"parseInt",
 			"parseTime",
@@ -380,11 +425,13 @@
 			"'"
 		],
 		"highlight": false,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"death",
+			"mouseCirclesMortality",
 			"\"Household\"",
 			"\""
 		],
@@ -406,15 +453,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7094,
+						"buffer_size": 8375,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								100,
-								100
+								2551,
+								2551
 							]
 						],
 						"settings":
@@ -425,27 +472,33 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2856.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
 					"buffer": 1,
 					"file": "cph_viz.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 468,
+						"buffer_size": 2141,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								318,
-								318
+								965,
+								965
 							]
 						],
 						"settings":
@@ -457,7 +510,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 102.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -483,11 +536,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5765625,
 			1.0
 		],
 		"rows":

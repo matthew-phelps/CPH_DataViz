@@ -4,6 +4,7 @@
   <title> CPH Viz</title>
   <meta charset="utf-8">
   <script src="http://d3js.org/d3.v3.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   
   <style>
     .axis line,
@@ -14,12 +15,17 @@
       shape-rendering: crispEdges;
     }
 
-    .tooltip {
+    .legend {
+      font-size: 12px;
+      font-family: 'Roboto';
+    }
+
+    #caseTooltip {
       position: absolute;
-      width: 200px;
+      width: 110px;
       height: auto;
       padding: 10px;
-      background-color: white;
+      background-color: #D3DFF3;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
       border-radius: 10px;
@@ -28,8 +34,23 @@
       box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
       pointer-events: none;
       opacity: 0
-
     }
+
+    #deathTooltip {
+      position: absolute;
+      width: 110px;
+      height: auto;
+      padding: 10px;
+      background-color: #F4E2E3;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+      opacity: 0
+}
 
     .tooltip p {
       margin: 0;
@@ -41,7 +62,6 @@
 </head>
 
 <body>
-
   <!-- ToolTip div -->
   <div id="caseTooltip" class = 'tooltip'>
     <p>Cases: <strong><span id="caseValue">100</span></strong> </p>
