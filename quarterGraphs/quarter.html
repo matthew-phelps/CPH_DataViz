@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> CPH Viz</title>
+  <title>Quarters</title>
   <meta charset="utf-8">
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -15,12 +15,19 @@
       shape-rendering: crispEdges;
     }
 
+    path {
+      stroke: steelblue;
+      stroke-width: 2;
+      fill: none;
+    }
+
     .legend {
-      font-size: 12px;
+      font-size: 14px;
+      text-anchor: middle;
       font-family: 'Roboto';
     }
 
-    #caseTooltip {
+    #tooltip {
       position: absolute;
       width: 110px;
       height: auto;
@@ -36,22 +43,6 @@
       opacity: 0
     }
 
-    #deathTooltip {
-      position: absolute;
-      width: 110px;
-      height: auto;
-      padding: 10px;
-      background-color: #F4E2E3;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-      -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-      -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-      pointer-events: none;
-      opacity: 0
-}
-
     .tooltip p {
       margin: 0;
       font-family: sans-serif;
@@ -62,18 +53,7 @@
 </head>
 
 <body>
-  <!-- ToolTip div -->
-  <div id="caseTooltip" class = 'tooltip'>
-    <p>Cases: <strong><span id="caseValue">100</span></strong> </p>
-    <p>Day index: <strong><span id="dayIndexCase">50</span></strong></p>
-    <p>Date: <span id="dateCase">50</span></p>
 
-  </div>
-
-  <div id="deathTooltip" class = 'tooltip'>
-    <p>Deaths: <strong><span id="deathValue">100</span></strong> </p>
-    <p>Day index: <strong><span id="dayIndexDeath">50</span></strong></p>
-    <p>Date: <span id="dateDeath">50</span></p>
 
   </div>
   <!-- LOAD DATA-->
@@ -84,5 +64,5 @@
 
 
 <!-- LOAD JavaScript -->
-<script type="text/javascript", src ='js/cph_viz_js.js'></script>
+<script type="text/javascript", src ='js/quarter_viz.js'></script>
 </html>
