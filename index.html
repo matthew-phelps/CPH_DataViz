@@ -1,88 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title> CPH Viz</title>
-  <meta charset="utf-8">
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  
-  <style>
-    .axis line,
-    .axis path {
-      stroke-width: 1;
-      fill: none;
-      stroke: #333;
-      shape-rendering: crispEdges;
-    }
 
-    .legend {
-      font-size: 12px;
-      font-family: 'Roboto';
-    }
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Copenhagen 1853 : Visualizing the outbreak">
 
-    #caseTooltip {
-      position: absolute;
-      width: 110px;
-      height: auto;
-      padding: 10px;
-      background-color: #D3DFF3;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-      -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-      -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-      pointer-events: none;
-      opacity: 0
-    }
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    #deathTooltip {
-      position: absolute;
-      width: 110px;
-      height: auto;
-      padding: 10px;
-      background-color: #F4E2E3;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-      -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-      -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-      pointer-events: none;
-      opacity: 0
-}
+    <title>Copenhagen 1853</title>
+  </head>
 
-    .tooltip p {
-      margin: 0;
-      font-family: sans-serif;
-      font-size: 16px;
-      line-height: 20px;
-    }
-  </style>
-</head>
+  <body>
 
-<body>
-  <!-- ToolTip div -->
-  <div id="caseTooltip" class = 'tooltip'>
-    <p>Cases: <strong><span id="caseValue">100</span></strong> </p>
-    <p>Day index: <strong><span id="dayIndexCase">50</span></strong></p>
-    <p>Date: <span id="dateCase">50</span></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/matthew-phelps/CPH_DataViz">View on GitHub</a>
 
-  </div>
+          <h1 id="project_title">Copenhagen 1853</h1>
+          <h2 id="project_tagline">Visualizing the outbreak</h2>
 
-  <div id="deathTooltip" class = 'tooltip'>
-    <p>Deaths: <strong><span id="deathValue">100</span></strong> </p>
-    <p>Day index: <strong><span id="dayIndexDeath">50</span></strong></p>
-    <p>Date: <span id="dateDeath">50</span></p>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/matthew-phelps/CPH_DataViz/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/matthew-phelps/CPH_DataViz/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-  </div>
-  <!-- LOAD DATA-->
-  <script type="text/javascript", src ='js/cph_viz_js.js'></script>
-</script>
-</body>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a id="the-1853-outbreak" class="anchor" href="#the-1853-outbreak" aria-hidden="true"><span class="octicon octicon-link"></span></a>The 1853 outbreak</h3>
 
+<h3>
+<a id="city-wide-morbidity-and-mortality" class="anchor" href="#city-wide-morbidity-and-mortality" aria-hidden="true"><span class="octicon octicon-link"></span></a>City-wide morbidity and mortality</h3>
 
+<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
 
-<!-- LOAD JavaScript -->
+<h3>
+<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating pages manually</h3>
 
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Copenhagen 1853 maintained by <a href="https://github.com/matthew-phelps">matthew-phelps</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
 </html>

@@ -1,0 +1,615 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"a",
+				"attr	selection.attr"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"le",
+				"legendHeight"
+			],
+			[
+				"tr",
+				"translate	.attr('transform', 'translate(0,0)')"
+			],
+			[
+				"trans",
+				"translate	.attr('transform', 'translate(0,0)')"
+			],
+			[
+				"se",
+				"selectAll"
+			],
+			[
+				"top",
+				"topPadding"
+			],
+			[
+				"chole",
+				"cholera_deaths"
+			],
+			[
+				"case",
+				"caseColor"
+			],
+			[
+				"mouse",
+				"mouseCircles"
+			],
+			[
+				"mou",
+				"mouseCircles"
+			],
+			[
+				"st",
+				"style	selection.style"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"date",
+				"full_date"
+			],
+			[
+				"da",
+				"day_index"
+			],
+			[
+				"choler",
+				"cholera_cases"
+			],
+			[
+				"rang",
+				"rangeBand"
+			],
+			[
+				"par",
+				"parseFloat"
+			],
+			[
+				"death",
+				"deathColor"
+			],
+			[
+				"dea",
+				"deathColor"
+			],
+			[
+				"tran",
+				"transition"
+			],
+			[
+				"stro",
+				"stroke-width"
+			],
+			[
+				"parse",
+				"parseTime"
+			],
+			[
+				"at",
+				"attr	selection.attr"
+			],
+			[
+				"cho",
+				"cholera_cases"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"r",
+				"r"
+			],
+			[
+				"dots",
+				"dotsMort"
+			],
+			[
+				"pa",
+				"parse"
+			],
+			[
+				"dot",
+				"dotsMort"
+			],
+			[
+				"s",
+				"sel	d3.select"
+			],
+			[
+				"selec",
+				"selectNode(${0:referenceNode})	Range"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"de",
+				"defaultCircleRadius"
+			],
+			[
+				"select",
+				"select"
+			],
+			[
+				"xM",
+				"xMin"
+			],
+			[
+				"ti",
+				"time"
+			],
+			[
+				"get",
+				"getMonth"
+			],
+			[
+				"Pump",
+				"Pump_ID"
+			],
+			[
+				"pro",
+				"properties"
+			],
+			[
+				"add",
+				"addTo"
+			],
+			[
+				"ge",
+				"geojsonMarkerOptions"
+			],
+			[
+				"houes",
+				"houses_geo"
+			],
+			[
+				"va",
+				"values"
+			],
+			[
+				"cen",
+				"center_y"
+			],
+			[
+				"d",
+				"date"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"ra",
+				"radius"
+			],
+			[
+				"radius",
+				"radiusHome"
+			],
+			[
+				"color",
+				"colorHome"
+			],
+			[
+				"colo",
+				"colorHome"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"count",
+				"count_axis"
+			],
+			[
+				"coun",
+				"count_scale"
+			],
+			[
+				"te",
+				"text"
+			],
+			[
+				"bar",
+				"barHeight"
+			],
+			[
+				"log",
+				"log_alpha"
+			],
+			[
+				"log_",
+				"log_beta"
+			],
+			[
+				"N",
+				"Nquarter"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "js/cph_viz_js.js",
+			"settings":
+			{
+				"buffer_size": 8375,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cph_viz.html",
+			"settings":
+			{
+				"buffer_size": 2141,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 101.0,
+		"last_filter": "Package Control: install",
+		"selected_items":
+		[
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"package ",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 725.0
+	},
+	"console":
+	{
+		"height": 162.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/CPH_DataViz/js/cph_viz_helper_js.js",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/Default.sublime-keymap",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/tongi_v1.html",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/JsFormat/JsFormat.sublime-settings",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/js/map_js.js",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson3/L3_basic_charts_final.html",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson4/07_globe_adding_circles.html",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/data/house_geo3.js",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/data/water_geo.js",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/house_geo3.js",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/map_js.js",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/water_geo.js",
+		"/C/Users/wrz741/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/houses_geo.js",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/houses_geo3.js",
+		"/C/Users/wrz741/Desktop/map_article.html",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/tile_test.html",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/data_for_maps/houses_2.geojson",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson4/01_globe.html",
+		"/C/Users/wrz741/Google Drive/Copenhagen/Bangladesh - Cholera/Map Stuff/d3js_map_code/houses_geo.json",
+		"/C/Users/wrz741/Google Drive/Self_learning/Leaflet/1_map_test.html",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson4/map_mp.html",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson4/06_globe_nest_return.html",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson4/04_globe_nest.html",
+		"/C/Users/wrz741/Google Drive/Self_learning/Leaflet/1_map_test",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson3/L3_basic_charts_mp.html",
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/RCodes/cph_model1_3.stan",
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/RCodes/cph_model1_2.stan",
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/RCodes/cph_model1_1.stan",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson3/L3_basic_charts_css.html",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson2/basic_charts3.html",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson3/L3_basic_charts.html",
+		"/C/Users/wrz741/Google Drive/Self_learning/Udacity/Data_Vis_All_Code_Files/lesson2/basic_charts2.html",
+		"/C/Users/wrz741/Google Drive/R Statisical tutorials/Udacity/Data_Vis_All_Code_Files/lesson2/basic_charts_mp.html",
+		"/C/Users/wrz741/Google Drive/R Statisical tutorials/Udacity/Data_Vis_All_Code_Files/lesson2/mini_prj_2.html",
+		"/C/Users/wrz741/Google Drive/R Statisical tutorials/Udacity/barChart.html",
+		"/C/Users/wrz741/Google Drive/R Statisical tutorials/Udacity/test.html",
+		"/C/Users/wrz741/Downloads/barChart (1)/barChart/index.html",
+		"/C/Users/wrz741/Downloads/barChart (1).zip",
+		"/C/Users/wrz741/Google Drive/Scripts/first_project_d3/index.html",
+		"/C/first_project_d3/d3/d3.js",
+		"/C/first_project_d3/index.html",
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/RCodes/cph_beta.stan",
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/RCodes/cph_simple.stan",
+		"/C/R-3.2.0/library/rCharts/libraries/nvd3/config.yml",
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/R codes/cph_simple.stan",
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/RCodes/cph_stan_2",
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/R codes/cph_beta.stan",
+		"/C/Users/wrz741/Google Drive/Copenhagen/DK Cholera/CPH/R codes/cph_beta_alpha.stan"
+	],
+	"find":
+	{
+		"height": 43.0
+	},
+	"find_in_files":
+	{
+		"height": 117.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"case",
+			"cases",
+			"mouseCircles",
+			"caseValue",
+			"none",
+			"parseInt",
+			"parseTime",
+			".call(xAxis)",
+			"br",
+			"padding",
+			"black",
+			"\"Household.\"",
+			"circles",
+			"debugger",
+			"favi",
+			"radius",
+			"'"
+		],
+		"highlight": false,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"death",
+			"mouseCirclesMortality",
+			"\"Household\"",
+			"\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "js/cph_viz_js.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8375,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2551,
+								2551
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Zenburnesque.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 3,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2856.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "cph_viz.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2141,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								965,
+								965
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Zenburnesque.tmTheme",
+							"history_list_is_closing": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5765625,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "cph_viz_pj.sublime-project",
+	"replace":
+	{
+		"height": 80.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 625.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 475.0
+	},
+	"select_symbol":
+	{
+		"height": 297.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"axis"
+			]
+		],
+		"width": 490.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 63.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
